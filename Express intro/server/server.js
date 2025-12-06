@@ -3,16 +3,37 @@ const express = require('express')
 
 const app = express()
 
-app.get('/', (req, res)=>{
-    res.send('hello from Express')
+// app.get('/', (req, res)=>{
+//     res.send('hello from Express')
+// })
+
+// app.get('/about', (req, res)=>{
+//     res.send('this is the about Page')
+// })
+
+// app.get('/contact', (req, res)=>{
+//     res.send('this is the contact Page')
+// })
+
+const courses = [
+    {id:1, name: "java"},
+    {id:2, name: "javascript"},
+    {id:3, name: "python"}
+]
+
+// get all courses
+app.get('/courses', (req, res)=>{
+    res.send(courses);
 })
 
-app.get('/about', (req, res)=>{
-    res.send('this is the about Page')
-})
+// get specific value based on the parameter
+app.get('/courses/:id', (req, res)=>{
+    const course = courses.find(course => course.id === parseInt(req.params.id));
+    if(!course){
+        res.status(404);
+    }
+    res.send(course);
 
-app.get('/contact', (req, res)=>{
-    res.send('this is the contact Page')
 })
 
 app.listen(8005, ()=>{

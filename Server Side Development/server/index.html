@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About & Contact</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      background: #222;
+      color: #fff;
+      padding: 15px 20px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      border-radius: 6px;
+    }
+
+    h2 {
+      border-bottom: 1px solid #eee;
+      padding-bottom: 8px;
+      margin-top: 0;
+    }
+
+    .about-text {
+      line-height: 1.6;
+    }
+
+    .contact-form {
+      margin-top: 15px;
+    }
+
+    .form-group {
+      margin-bottom: 12px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      background: #222;
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      padding: 10px 0 20px;
+      color: #777;
+    }
+
+    /* Simple anchor scroll spacing */
+    section {
+      margin-bottom: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Website</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <!-- About Section -->
+    <section id="about">
+      <h2>About</h2>
+      <p class="about-text">
+        Hi, I’m [Your Name], a Software Development Engineer with experience in building
+        web applications using JavaScript and React. I enjoy creating clean, efficient
+        user interfaces and working closely with teams to ship useful products.
+      </p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>If you’d like to get in touch, fill out the form below:</p>
+
+      <form class="contact-form">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input id="name" type="text" placeholder="Your name" />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="you@example.com" />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Write your message here..."></textarea>
+        </div>
+
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 Your Name. All rights reserved.
+  </footer>
+</body>
+</html>

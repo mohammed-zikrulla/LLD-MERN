@@ -1,7 +1,9 @@
 //npm i express
 const express = require('express')
 
-const app = express()
+const app = express();
+
+app.use(express.json());
 
 // app.get('/', (req, res)=>{
 //     res.send('hello from Express')
@@ -16,26 +18,40 @@ const app = express()
 // })
 
 const courses = [
-    {id:1, name: "java"},
-    {id:2, name: "javascript"},
-    {id:3, name: "python"}
+    { id: 1, name: "java" },
+    { id: 2, name: "javascript" },
+    { id: 3, name: "python" }
 ]
-
+//---GET METHOD----//
 // get all courses
-app.get('/courses', (req, res)=>{
+app.get('/courses', (req, res) => {
     res.send(courses);
 })
 
 // get specific value based on the parameter
-app.get('/courses/:id', (req, res)=>{
+app.get('/courses/:id', (req, res) => {
     const course = courses.find(course => course.id === parseInt(req.params.id));
-    if(!course){
+    if (!course) {
         res.status(404);
     }
     res.send(course);
 
 })
 
-app.listen(8005, ()=>{
+//----POST----//
+
+app.post('/courses', (req, res) => {
+    const course = {
+        id: req.body.id,
+        name: req.body.name
+    }
+
+    courses.push(course);
+
+    res.send(courses);
+})
+
+
+app.listen(8005, () => {
     console.log('server started on port 8005');
 })

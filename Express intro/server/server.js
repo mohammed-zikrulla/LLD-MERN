@@ -22,6 +22,7 @@ const courses = [
     { id: 2, name: "javascript" },
     { id: 3, name: "python" }
 ]
+
 //---GET METHOD----//
 // get all courses
 app.get('/courses', (req, res) => {
@@ -30,7 +31,7 @@ app.get('/courses', (req, res) => {
 
 // get specific value based on the parameter
 app.get('/courses/:id', (req, res) => {
-    const course = courses.find(course => course.id === parseInt(req.params.id));
+    const course = courses.find(course => course.id === Number.parseInt(req.params.id));
     if (!course) {
         res.status(404);
     }
@@ -49,6 +50,29 @@ app.post('/courses', (req, res) => {
     courses.push(course);
 
     res.send(courses);
+})
+
+// ----PUT------//
+
+app.put('/courses/:id', (req, res) => {
+    let course = courses.find(course => Number.parseInt(req.params.id) === course.id);
+    if (!course) {
+        res.status(404).send("cannot update the course")
+    }
+    course.name = req.body.name;
+    res.send(course);
+})
+
+// --------Delete--------- //
+
+app.delete('/courses/:id', (req, res) => {
+    let course = courses.find(course => Number.parseInt(req.params.id) === course.id);
+    if (!course) {
+        res.status(404).send("cannot delete the course")
+    }
+    const index = courses.indexOf(course);
+    courses.splice(index, 1);
+    res.send(course);
 })
 
 

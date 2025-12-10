@@ -3,6 +3,7 @@ const express = require('express')
 
 const app = express();
 
+//built-in express middleware to parse json files easily
 app.use(express.json());
 
 // app.get('/', (req, res)=>{

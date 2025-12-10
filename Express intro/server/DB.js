@@ -47,5 +47,15 @@ mongoose.connect(dbString).then(()=>{
 
    }
 
+   async function deleteCourse(id){
+    let course = await CourseModel.findByIdAndDelete(id);
+    if(!course){
+        console.log("course not found");
+        return;
+    }
+    console.log("Deleted successfully");
+   }
+
     // createCourse();
-    updateCourse('6939a58340982ab246707952');
+    // updateCourse('6939a58340982ab246707952');
+    deleteCourse('6939a58340982ab246707952');

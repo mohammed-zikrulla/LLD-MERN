@@ -56,6 +56,12 @@ mongoose.connect(dbString).then(()=>{
     console.log("Deleted successfully");
    }
 
+   async function getAllCourses(){
+    let courses = await CourseModel.find({});
+    console.log(courses);
+   }
+
     // createCourse();
     // updateCourse('6939a58340982ab246707952');
-    deleteCourse('6939a58340982ab246707952');
+    // deleteCourse('6939a58340982ab246707952');
+    getAllCourses();

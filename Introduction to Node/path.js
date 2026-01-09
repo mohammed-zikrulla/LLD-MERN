@@ -1,22 +1,22 @@
-const path = require('path');
-const fs = require('fs');
+const path = require("path");
+const fs = require("fs");
 // console.log(path);
 
 // ----BASENAME AND EXTNAME----- //
 
 //basename
-const fileBs = path.basename('f2.txt');
+const fileBs = path.basename("f2.txt");
 console.log(fileBs); // f2.txt
 
 //extname
-const extName = path.extname('f2.txt');
+const extName = path.extname("f2.txt");
 console.log(extName); // .txt
 
-//current directory name 
+//current directory name
 //  syntax : __dirname
 console.log(__dirname);
 
-//current filename 
+//current filename
 //  syntax : __filename
 console.log(__filename);
 
@@ -28,8 +28,10 @@ console.log(__filename);
 
 //procedure -> first copy the path of the source file and join its basename with the destination foleder.
 
-const srcFilePath = '/Users/zikrulla/Documents/LLD-MERN/Introduction to Node/myDirectory1/f8.txt'
-const destForlderPath = '/Users/zikrulla/Documents/LLD-MERN/Introduction to Node/myDirectory2'
+const srcFilePath =
+  "/Users/zikrulla/Documents/LLD-MERN/Introduction to Node/myDirectory1/f8.txt";
+const destForlderPath =
+  "/Users/zikrulla/Documents/LLD-MERN/Introduction to Node/myDirectory2";
 
 const srcFileBaseName = path.basename(srcFilePath);
 

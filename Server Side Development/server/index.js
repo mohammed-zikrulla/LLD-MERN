@@ -18,39 +18,43 @@
 //     console.log('server started');
 // })
 
-const http = require('http');
-const fs = require('fs');
-const urlPack = require('url');
+const http = require("http");
+const fs = require("fs");
+const urlPack = require("url");
 
 const myServer = http.createServer((req, res) => {
-    const url = req.url;
-    const htmlFile = fs.readFileSync('index.html')
+  const url = req.url;
+  const htmlFile = fs.readFileSync("index.html");
 
-    const parsedUrl = urlPack.parse(url, true);
+  const parsedUrl = urlPack.parse(url, true);
 
-    switch (parsedUrl.pathname) {
-        case '/': res.end("this is the home page")
-            break;
-        case '/about': res.end(htmlFile)
-            break;
-        case '/contact':
-            {
-                let contactName = parsedUrl.query.name;
-                res.end(parsedUrl.query.name ? `Contact page for ${contactName}` : 'contact page')
-                break;
-            }
-        default: res.end("404 not Found")
-            break;
+  switch (parsedUrl.pathname) {
+    case "/":
+      res.end("this is the home page");
+      break;
+    case "/about":
+      res.end(htmlFile);
+      break;
+    case "/contact": {
+      let contactName = parsedUrl.query.name;
+      res.end(
+        parsedUrl.query.name
+          ? `Contact page for ${contactName}`
+          : "contact page"
+      );
+      break;
     }
-    //basic custom logger using fs module
+    default:
+      res.end("404 not Found");
+      break;
+  }
+  //basic custom logger using fs module
 
-    const resData = `${Date.now()} ${req.url}\n`
-    fs.appendFile('logs.txt', resData, (err, data) => {
-    })
-}
-)
+  const resData = `${Date.now()} ${req.url}\n`;
+  fs.appendFile("logs.txt", resData, (err, data) => {});
+});
 
 // listener port
 myServer.listen(8000, () => {
-    console.log('server started')
-})
+  console.log("server started");
+});
